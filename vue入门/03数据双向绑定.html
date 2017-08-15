@@ -1,0 +1,28 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+	<h1>在 input 输入框中我们可以使用 v-model 指令来实现双向数据绑定：</h1>
+	<p><b>修改输入框的值，查看效果</b>:</p>
+	<div id="app">
+
+		<p>{{* message }}</p><!-- 加 * 则一直显示初始值 -->
+		<p>{{ message }}</p>
+		<p>{{ message + "官网地址：www.baidu.com" }}</p><!-- 字符串连接 -->
+		<p>{{ message.split("").reverse().join("") }}</p><!-- 字符串反转 -->
+		<input type="text" v-model="message">
+	</div>
+
+	<script>
+		new Vue({
+			el:"#app", 
+			data: {
+				message:"Hello World!"
+			}
+		});
+	</script>
+</body>
+</html>

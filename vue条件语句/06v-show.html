@@ -1,0 +1,22 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+	<h1>注意: v-show 不支持 &lt;template&gt; 语法</h1>
+	<div id="app">
+	    <h2 v-show="ok">Hello!</h2>
+	</div>
+		
+	<script>
+		new Vue({
+		    el: '#app',
+		    data: {
+		        ok: true
+		    }
+		})
+	</script>
+</body>
+</html>

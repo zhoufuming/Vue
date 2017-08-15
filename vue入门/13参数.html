@@ -1,0 +1,26 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>表达式</title>
+	<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+</head>
+<body>
+	<h1>参数在指令后以冒号指明。例如，v-bind指令被用响应更新HTML属性</h1>
+	<div id="app">
+		<a v-bind:href="url">百度一下</a>
+		<!-- <p v-bind:onclick='fn1'>点我一下</p> -->
+		<!-- 可缩写成 -->
+		<p v-bind:onclick='fn1'>点我一下</p>
+	</div>
+
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				url: 'http://www.baidu.com',
+				fn1: 'alert(1);'
+			}
+		})
+	</script>
+</body>
+</html>

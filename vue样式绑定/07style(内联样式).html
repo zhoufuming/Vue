@@ -1,0 +1,23 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div v-bind:style="{ color: activeColor,fontSize: fontSize + 'px' }">菜鸟教程</div>
+		<!-- 复合样式要遵循js的格式，第二个单词首字母大写 -->
+	</div>
+		
+	<script>
+		new Vue({
+		  	el: "#app",
+		  	data: {
+	  			activeColor: "green",
+	  			fontSize: 30
+		  	}
+		})
+	</script>
+</body>
+</html>

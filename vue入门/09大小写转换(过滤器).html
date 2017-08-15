@@ -1,0 +1,28 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>过滤器</title>
+	<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<p>{{message}}</p>
+		<p>{{message | uppercase}}</p><!-- uppercase转换成大写，过滤器要用 | ‘管道符’ 来连接 -->
+		<p>{{message.split("").reverse().join("")}}</p><!-- 字符串反转 -->
+		<p>{{message | reverse}}</p><!-- reverse是自定义的过滤器 -->
+		<p>{{message | reverse | uppercase}}</p>
+	</div>
+
+	<script>
+		Vue.filter('reverse',function(value){//自定义过滤器
+			return value.split('').reverse().join('')
+		})
+		new Vue({
+			el:'#app',
+			data: {
+				message:'www.baidu.com'
+			}
+		})
+	</script>
+</body>
+</html>

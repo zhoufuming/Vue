@@ -1,0 +1,29 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+	<style>
+		.active {
+			width: 100px;
+			height: 100px;
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div v-bind:class="{ active:isActive }"></div>
+	</div>
+		
+	<script>
+		new Vue({
+		   el: "#app",
+		   data: {
+		   	isActive: true
+		   	//isActive 设置为 true 显示了一个绿色的 div 块，如果设置为 false 则不显示：
+		   }
+		})
+	</script>
+</body>
+</html>

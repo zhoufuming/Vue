@@ -1,0 +1,38 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+	<style>
+		button {
+			position: absolute;
+			left: 50px;
+			top: 50px;
+		}
+		.fade-enter-active, .fade-leave-active {
+			transition: opacity .5s;
+		}
+		.fade-enter,.fade-leave-active {
+			opacity: 0;
+		}
+	</style>
+</head>
+<body>
+	<p>这里会有一个小问题，切换的时候按钮位置会闪一下,可以通过定位来解决</p>
+	<div id="demo">
+		<transition name="fade">
+			<button v-if="on" key="on" @click="on = false">on</button>
+			<button v-else key="off" @click="on = true">off</button>
+		</transition>
+	</div>
+		
+	<script>
+		new Vue({
+			el: "#demo",
+			data: {
+				on:false
+			}
+		})
+	</script>
+</body>
+</html>

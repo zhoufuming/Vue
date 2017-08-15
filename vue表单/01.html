@@ -1,0 +1,29 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+	<h3>v-model会根据控件类型自动选取正确的方法来更新元素</h3>
+	<div id="app">
+		<p>input 元素：</p>
+		<input type="text" v-model="message" placeholder="编辑我。。。。。。">
+		<p>消息是：{{message}}</p>
+
+		<p>textarea元素：</p>
+		<p style="white-space: pre">{{message2}}</p>
+		<textarea v-model="message2" placeholder="多行文本输入。。。。。。"></textarea>
+	</div>
+		
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				message: 'Runoob',
+				message2: '菜鸟教程\r\nhttp://www.runoob.com'
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>v-html</title>
+	<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div v-html="message"><!-- 使用v-html指令用于输出html代码 -->
+		</div>
+	</div>
+	<script>
+		new Vue({
+			el:"#app",
+			data: {
+				message:"<h1>Hello World!</h1>"
+			}
+		});
+	</script>
+</body>
+</html>

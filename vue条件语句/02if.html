@@ -1,0 +1,23 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div v-if="Math.random() > 0.5">
+			随机数大于0.5
+		</div>
+		<div v-else><!-- v-else 、v-else-if 必须跟在 v-if 或者 v-else-if之后。 -->
+			随机数不大于0.5
+		</div>
+	</div>
+
+	<script>
+		var Vue({
+			el: "#app"
+		})
+	</script>
+</body>
+</html>

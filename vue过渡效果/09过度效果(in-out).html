@@ -1,0 +1,44 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+	<style>
+		button {
+			position: absolute;
+			left: 50px;
+			top: 50px;
+		}
+		.fade-enter-active, .fade-leave-active {
+			transition: all .5s; 
+		}
+		.fade-enter,.fade-leave-active {
+			opacity: 0;
+		}
+		.fade-enter {
+			transform: translateX(31px);
+		}
+		.fade-leave-active {
+			transform: translateX(-31px);
+		}
+	</style>
+</head>
+<body>
+	<p>加上translate会有一个滑动的效果</p>
+	<div id="demo">
+		<transition name="fade" mode="in-out">
+			<button v-if="on" key="on" @click="on = false">on</button>
+			<button v-else key="off" @click="on = true">off</button>
+		</transition>
+	</div>
+		
+	<script>
+		new Vue({
+			el: "#demo",
+			data: {
+				on:false
+			}
+		})
+	</script>
+</body>
+</html>

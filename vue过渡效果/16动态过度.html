@@ -1,0 +1,68 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+</head>
+<body>
+	<p>在 Vue 中即使是过渡也是数据驱动的！动态过渡最基本的例子是通过 name 特性来绑定动态值。</p>
+	<p>当你想用 Vue 的过渡系统来定义的 CSS 过渡/动画 在不同过渡间切换会非常有用。<br>
+所有的过渡特性都是动态绑定。它不仅是简单的特性，通过事件的钩子函数方法，可以在获取到相应上下文数据。这意味着，可以根据组件的状态通过 JavaScript 过渡设置不同的过渡效果。</p>
+	<div id="demo">
+		Fade In:<input type="range" v-model="fadeInDuration" min="0" v-bind:max="maxFadeDuration">
+		Fade Out:<input type="range" v-model="fadeOutDuration" min="0" v-bind:max="maxFadeDuration">
+		<transition v-bind:css="false" v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:leave="leave">
+			<p v-if="show">hello</p>
+		</transition>
+		<button v-on:click="stop = true">Stop it!</button>
+	</div>
+	
+	<script>
+		new Vue({
+		  el: '#demo',
+		  data: {
+		    show: true,
+		    fadeInDuration: 1000,
+		    fadeOutDuration: 1000,
+		    maxFadeDuration: 1500,
+		    stop: false
+		  },
+		  mounted: function () {
+		    this.show = false
+		  },
+		  methods: {
+		    beforeEnter: function (el) {
+		      el.style.opacity = 0
+		    },
+		    enter: function (el, done) {
+		      var vm = this
+		      Velocity(el,
+		        { opacity: 1 },
+		        {
+		          duration: this.fadeInDuration,
+		          complete: function () {
+		            done()
+		            if (!vm.stop) vm.show = false
+		          }
+		        }
+		      )
+		    },
+		    leave: function (el, done) {
+		      var vm = this
+		      Velocity(el,
+		        { opacity: 0 },
+		        {
+		          duration: this.fadeOutDuration,
+		          complete: function () {
+		            done()
+		            vm.show = true
+		          }
+		        }
+		      )
+		    }
+		  }
+		})
+	</script>
+</body>
+</html>

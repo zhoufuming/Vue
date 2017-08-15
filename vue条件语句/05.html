@@ -1,0 +1,25 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<!-- vue2.0一下的版本不支持 -->
+		<div v-if="type === 'A'">A</div>
+		<div v-else-if="type === 'B'">B</div>
+		<div v-else-if="type === 'C'">C</div>
+		<div v-else>没有A/B/C</div>
+	</div>
+
+	<script>
+		new Vue({
+			el: "#app",
+			data: {
+				type:'C'
+			}
+		})
+	</script>
+</body>
+</html>

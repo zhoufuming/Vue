@@ -1,0 +1,23 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div>{{ a }}</div>
+		<div v-text="a"></div>
+		<div v-html="a"></div>
+	</div>
+
+	<script>
+		new Vue({
+			el:"#app", // 对象
+			data: {	// 数据
+				a:"<h3>hello</h3>"
+			}
+		});
+	</script>
+</body>
+</html>

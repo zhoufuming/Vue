@@ -1,0 +1,44 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>表达式</title>
+	<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+</head>
+<body>
+	<h1>computed属性默认只有getter，不过需要是你也可以提供一个setter:</h1>
+	<div id="app">
+		<p>{{ site }}</p>
+	</div>
+
+	<script>
+		var vm = new Vue({ // Vue中vm 这个变量名表示 Vue 实例
+			el: "#app",
+			data: {
+				name: 'Google',
+				url: 'http://www.google.com'
+			},
+			computed: {
+				site: {
+					// getter
+					get: function(){
+						return this.name + ' ' + this.url
+					},
+					// setter
+					set: function(newValue){
+						var names = newValue.split(' ')
+						this.name = names[0]
+						this.url = names[names.length-1]
+					}
+				}
+			}
+		})
+		// 调用setter，vm.name 和vm.url 也会被对应更新
+		vm.site = '百度一下 http://www.baidu.com';
+		document.write('name:' + vm.name);
+		document.write('<br>');
+		document.write('url: ' + vm.url);
+
+		/*从实例运行结果看在运行 vm.site = '菜鸟教程 http://www.runoob.com'; 时，setter 会被调用， vm.name 和 vm.url 也会被对应更新。*/
+	</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+	<style>
+		button {
+			position: absolute;
+			left: 50px;
+			top: 50px;
+		}
+		.fade-enter-active, .fade-leave-active {
+			transition: all .5s; 
+		}
+		.fade-enter,.fade-leave-active {
+			opacity: 0;
+		}
+	</style>
+</head>
+<body>
+	<p>同时生效的进入和离开的过渡不能满足所有要求，所以 Vue 提供了 过渡模式<br>
+	out-in: 当前元素先进行过渡，完成之后新元素过渡进入。</p>
+	<div id="demo">
+		<transition name="fade" mode="out-in">
+			<button v-if="on" key="on" @click="on = false">on</button>
+			<button v-else key="off" @click="on = true">off</button>
+		</transition>
+	</div>
+		
+	<script>
+		new Vue({
+			el: "#demo",
+			data: {
+				on:false
+			}
+		})
+	</script>
+</body>
+</html>

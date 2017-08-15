@@ -1,0 +1,25 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<zhou></zhou>
+	</div>
+	<zhou></zhou>
+		
+	<script>
+	// 注册
+	Vue.component('zhou',{
+		template:'<h1>自定义组件！</h1>'
+	})
+
+	// 创建根实例
+	new Vue({
+		el: '#app'
+	})
+	</script>
+</body>
+</html>

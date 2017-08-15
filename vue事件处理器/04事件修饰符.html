@@ -1,0 +1,43 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+	<h3>Vue.js为v-on提供了事件修饰符处理DOM事件细节，如：event.preventDefault()或event.stopPropagation().</h3>
+	<p>Vue.js通过由点(.)表示的指令后缀来调用修饰符。</p>
+	<p>.stop</p>
+	<p>.prevent</p>
+	<p>.capture</p>
+	<p>.self</p>
+	<p>.once</p>
+	<hr>
+	<div id="app">
+		<!-- 阻止单击事件冒泡 -->
+		<a v-on:click.stop="doThis"></a>
+
+		<!-- 提交事件不再重载页面 -->
+		<form v-on:submit.prevent="onSubmit"></form>
+
+		<!-- 修饰符可以串联  -->
+		<a v-on:click.stop.prevent="doThat"></a>
+
+		<!-- 只有修饰符 -->
+		<form v-on:submit.prevent></form>
+
+		<!-- 添加事件侦听器时使用事件捕获模式 -->
+		<div v-on:click.capture="doThis">...</div>
+
+		<!-- 只当事件在该元素本身（而不是子元素）触发时触发回调 -->
+		<div v-on:click.self="doThat">...</div>
+
+		<!-- click 事件至少触发一次，2.1.4版本新增 -->
+		<a v-on:click.once="doThis"></a>
+	</div>
+		
+	<script>
+	
+	</script>
+</body>
+</html>

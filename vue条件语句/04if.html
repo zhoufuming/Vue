@@ -1,0 +1,32 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+</head>
+<body>
+	<p>判断输入值是否为ok</p>
+	<div id="app">
+		<input type="text" v-model="message">
+
+		<!-- 用template标签就可以在里面加很多标签，而template标签本身不会显示出来 -->
+		<!-- v-show作用与v-if类似，不同的是v-show的元素会始终渲染并保持在 DOM 中,且v-show不支持<template>标签。 -->
+
+		<template v-if="message == 'ok'">
+			<h1>标题</h1>
+			<p>内容一</p>
+			<p>内容二</p>
+		</template>
+		<h1 v-else>No</h1>
+	</div>
+
+	<script>
+		new Vue({
+			el:"#app",
+			data: {
+				message:"ok"
+			}
+		});
+	</script>
+</body>
+</html>

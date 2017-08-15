@@ -1,0 +1,29 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>表达式</title>
+	<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+</head>
+<body>
+	<h1>条件判断使用v-if指令</h1>
+	<h2>v-if 指令将根据表达式 seen/ok 的值(true 或 false )来决定是否插入 p 元素</h2>
+	<div id="app">
+		<p v-if="seen">我是p1</p>
+		<template v-if="ok"><!-- template标签不会在页面中显示 -->
+			<h1>我是h11</h1>
+			<p>我是p2</p>
+			<p>我是p3</p>
+		</template>
+	</div>
+
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				seen: false,//如果值为false则不会显示不来(不是显示为none而是页面中根本找不到)
+				ok: true
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+	<style>
+		.active {
+			width: 100px;
+			height: 100px;
+			background: green;
+		}
+		.text-danger {
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<h1>可以添加多个样式</h1>
+	<div id="app">
+		<div class="static" v-bind:class="{ active:isActive,'text-danger':haError}"></div>
+	</div>
+		
+	<script>
+		new Vue({
+		   el: "#app",
+		   data: {
+		   	isActive: true,
+		   	haError: true
+		   }
+		})
+	</script>
+</body>
+</html>

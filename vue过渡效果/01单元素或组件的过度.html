@@ -1,0 +1,60 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>过渡的-CSS-类名</title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+	<style>
+		/*demo-transition是transition标签的name,不设置name的话，默认用v-作为前缀*/
+		.demo-transition-enter-active, .demo-transition-leave-active {
+		  transition: opacity .5s;
+		}
+		.demo-transition-enter, .demo-transition-leave-to{
+		  opacity: 0;
+		}
+		/*会有 6 个(CSS)类名在 enter/leave 的过渡中切换
+
+		v-enter: 定义进入过渡的开始状态。在元素被插入时生效，在下一个帧移除。
+
+		v-enter-active: 定义进入过渡的结束状态。在元素被插入时生效，在 transition/animation 完成之后移除。这个类可以用来定义进入转换的持续时间、延迟和放松曲线。
+
+		v-enter-to: 只有版本> = 2.1.8。为进入结束状态。添加一个after元素插入(同时，v - enter)，当转换/动画完成时删除。
+
+		v-leave: 定义离开过渡的开始状态。在离开过渡被触发时生效，在下一个帧移除。
+
+		v-leave-active: 定义离开过渡的结束状态。在离开过渡被触发时生效，在 transition/animation 完成之后移除。
+		This class can be used to define the duration, delay and easing curve for the leaving transition.
+
+		v-leave-to: 只有版本> = 2.1.8。请假结束状态。在结束转换后添加一个帧(在同一时间v - leave被删除)，当转换/动画结束时删除。*/
+	</style>
+</head>
+<body>
+
+<pre>Vue 提供了 transition 的封装组件，在下列情形中，可以给任何元素和组件添加 entering/leaving 过渡
+条件渲染 （使用 v-if）
+条件展示 （使用 v-show）
+动态组件
+组件根节点</pre>
+<pre>
+元素封装成过渡组件之后，在遇到插入或删除时，Vue 将
+自动嗅探目标元素是否有 CSS 过渡或动画，并在合适时添加/删除 CSS 类名。
+如果过渡组件设置了过渡的 JavaScript 钩子函数，会在相应的阶段调用钩子函数。
+如果没有找到 JavaScript 钩子并且也没有检测到 CSS 过渡/动画，DOM 操作（插入/删除）在下一帧中立即执行。(注意：此指浏览器逐帧动画机制，与 Vue，和Vue的 nextTick 概念不同)
+</pre>
+
+	<div id="demo">
+		<button v-on:click="show = ! show">Toggle</button>
+		<transition name="demo-transition">
+			<p v-if="show">hello</p>
+		</transition>
+	</div>
+
+	<script>
+		 new Vue({
+		 	el: "#demo",
+		 	data: {
+		 		show: true
+		 	}
+		 })
+	</script>
+</body>
+</html>

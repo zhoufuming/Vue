@@ -1,0 +1,38 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>css过度</title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+	<style>
+		.slide-fade-enter-active {
+			transition: all .3 ease;
+		}
+		.slide-fade-leave-active {
+			transition: all .8s;
+		}
+		.slide-fade-enter, .slide-fade-leave-to {
+			transform: translateX(50px);
+			opacity: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="example-1">
+		<button @click="show = !show">
+			Toggle render
+		</button>
+		<transition name="slide-fade">
+			<p v-if="show">hello</p>
+		</transition>
+	</div>
+		
+	<script>
+		new Vue({
+			el: '#example-1',
+			data: {
+				show: true
+			}
+		})
+	</script>
+</body>
+</html>

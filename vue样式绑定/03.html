@@ -1,0 +1,35 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+	<style>
+		.active {
+			width: 100px;
+			height: 100px;
+			background: green;
+		}
+		.text-danger {
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<h1>也可以直接绑定数据里的一个对象</h1>
+	<div id="app">
+		<div v-bind:class="classObject"></div>
+	</div>
+		
+	<script>
+		new Vue({
+		    el: "#app",
+		    data: {
+		    	classObject: {
+		    		active: true,
+		    		'text-danger': true
+		    	}
+		    }
+		})
+	</script>
+</body>
+</html>

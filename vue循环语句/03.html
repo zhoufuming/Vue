@@ -1,0 +1,52 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+	
+	<div id="app">
+		<ul>
+			<!-- v-for 可以通过一个对象的属性来迭代数据： -->
+			<li v-for="value in object">
+				{{ value }}
+			</li>
+		</ul>
+
+		<ul>
+			<!-- 第二个参数为键名 -->
+			<li v-for="(value,key) in object">
+				{{ key }} : {{ value }}
+			</li>
+		</ul>
+
+		<ul>
+			<!-- 第三个参数为索引 -->
+			<li v-for="(value,key,index) in object">
+				{{ index }} . {{ key }} : {{ value }}
+			</li>
+		</ul>
+
+		<ul>
+			<!-- 迭代整数 -->
+			<li v-for="n in 10">
+				{{ n }}
+			</li>
+		</ul>
+	</div>
+		
+	<script>
+		new Vue({
+		    el: '#app',
+		    data: {
+		        object: {
+		        	name: 'zhoufuming',
+		        	age: 18,
+		        	sex: "男"
+		        }
+		    }
+		})
+	</script>
+</body>
+</html>

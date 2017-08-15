@@ -1,0 +1,26 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+	<h3>有时候我们不需要其他钩子函数，我们可以简写函数，如下格式：</h3>
+
+	<div id="app">
+		<div v-runoob="{color:'green',text:'菜鸟教程！'}"></div>
+	</div>
+
+	<script>
+	Vue.directive('runoob',function(el,binding){
+		//简写方式设置文本及背景颜色
+		el.innerHTML = binding.value.text // binding.value指的就是{color:'green',text:'菜鸟教程！'} 这个对象
+		el.style.backgroundColor = binding.value.color
+	})
+
+	new Vue({
+		el: '#app'
+	})
+	</script>
+</body>
+</html>

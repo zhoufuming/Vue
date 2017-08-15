@@ -1,0 +1,34 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+	<style>
+		.active {
+			width: 100px;
+			height: 100px;
+			background: green;
+		}
+		.text-danger {
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<h2>我们还可以使用三元表达式来切换列表中的 class ：</h2>
+	<div id="app">
+		<div v-bind:class="[activeClass,isActive ? errorClass : '']"></div>
+	</div>
+		
+	<script>
+		new Vue({
+		    el: "#app",
+		    data: {
+		    	isActive: true,
+		    	activeClass: 'active',
+		    	errorClass: 'text-danger'
+		    }		    
+		})
+	</script>
+</body>
+</html>

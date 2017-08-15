@@ -1,0 +1,60 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>css动画</title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+	<style>
+		body {
+			padding-left: 200px;
+		}
+		.bounce-enter-active {
+			animation: bounce-in .5s;
+		}
+		.bounce-leave-active {
+			animation: bounce-out .5s;
+		}
+		@keyframes bounce-in {
+			0% {
+				transform: scale(0);
+			}
+			50% {
+				transform: scale(1.5);
+			}
+			100% {
+				transform: scale(1);
+			}
+		}
+		@keyframes bounce-out {
+			0% {
+				transform: scale(1);
+			}
+			50% {
+				transform: scale(1.5);
+			}
+			100% {
+				transform: scale(0);
+			}
+		}
+	</style>
+</head>
+<body>
+	<p>CSS 动画用法同 CSS 过渡，区别是在动画中 v-enter 类名在节点插入 DOM 后不会立即删除，而是在 animationend 事件触发时删除。</p>
+	<div id="example-2">
+		<button @click="show = !show">
+			Toggle render
+		</button>
+		<transition name="bounce">
+			<p v-if="show">Look at me!</p>
+		</transition>
+	</div>
+		
+	<script>
+		new Vue({
+			el: '#example-2',
+			data: {
+				show: true
+			}
+		})
+	</script>
+</body>
+</html>

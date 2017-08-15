@@ -1,0 +1,41 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+	<style>
+		.active {
+			width: 100px;
+			height: 100px;
+			background: green;
+		}
+		.text-danger {
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<h2>实例4与实例3的渲染结果是一样的。此外，我们也可以在这里绑定返回对象的计算属性。这是一个常用且强大的模式：</h2>
+	<div id="app">
+		<div v-bind:class="classObject"></div>
+	</div>
+		
+	<script>
+		new Vue({
+		    el: "#app",
+		    data: {
+		    	isActive: true,
+		    	error: null
+		    },
+		    computed: {
+		    	classObject: function(){
+		    		return {
+		    			active: this.isActive && !this.error, // -> true
+		    			'text-danger': this.error && this.error.type == 'false', // -> false
+		    		}
+		    	}
+		    }
+		})
+	</script>
+</body>
+</html>

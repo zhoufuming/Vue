@@ -1,0 +1,27 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<zhou></zhou>
+	</div>
+		
+	<script>
+	var Child = {
+		template: '<h1>自定义组件！</h1>'
+	}
+
+	// 创建根实例
+	new Vue({
+		el: '#app',
+		components: {
+			//<zhou> 将只在父模版可用
+			'zhou': Child
+		}
+	})
+	</script>
+</body>
+</html>

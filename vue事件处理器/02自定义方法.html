@@ -1,0 +1,37 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<button v-on:click="greet">Greet</button>
+	</div>
+		
+	<script>
+		// var btn = document.getElementsByTagName('button')[0];
+		// alert(btn.tagName);
+		// 
+		var app = new Vue({
+			el: "#app",
+			data: {
+				name: 'Vue.js'
+			},
+			// 在 methods对象中定义方法
+			methods: {
+				greet: function(event){
+					// this 在这方法里指向当前Vue实例
+					alert('Hello ' + this.name + '!')
+					// event 是原生DON 事件
+					if (event) {
+						alert(event.target.tagName) // event.target指的就是buttn标签
+					}
+				}
+			}
+		})
+		// 也可以用 JavaScript 直接调用方法
+		app.greet() //->页面打开直接弹出 Hello Vue.js!
+	</script>
+</body>
+</html>

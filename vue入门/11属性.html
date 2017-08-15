@@ -1,0 +1,36 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>v-html</title>
+	<style>
+		.class1 {
+			background: #444;
+			color: #eee;
+		}
+	</style>
+	<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+</head>
+<body>
+	<h1>HTML 属性中的值应使用 v-bind 指令</h1>
+	<div id="app">
+		<label for="r1">修改颜色</label>
+		<input type="checkbox" v-model="class1" id="r1">
+		<br>
+		<br>
+		<!-- <div v-bind:class="{'class1':class1}"> -->
+		<!-- v-bind指令可缩写为''(就是可以省略不写) -->
+		<div :class="{'class1':class1}">
+			directiva v-bind:class
+		</div>
+	</div>
+
+	<script>
+		new Vue({
+			el:"#app",
+			data: {
+				class1: false //值为true是，则添加该类名
+			}
+		});
+	</script>
+</body>
+</html>

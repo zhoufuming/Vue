@@ -1,0 +1,30 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<template v-for="site in sites">
+				<li>{{ site.name }}</li>
+				<li>——————————</li>
+			</template>
+		</ul>
+	</div>
+		
+	<script>
+		new Vue({
+		    el: '#app',
+		    data: {
+		        sites: [
+		        { name: 'zhou' },
+		        { name: 'fu' },
+		        { name: 'ming' }
+		        ]
+		    }
+		})
+	</script>
+</body>
+</html>
